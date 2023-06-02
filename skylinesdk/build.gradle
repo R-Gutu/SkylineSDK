@@ -4,6 +4,9 @@ plugins {
     id 'maven-publish'
 }
 
+group = 'com.github.R-Gutu'
+version = '1.0.6'
+
 android {
     namespace 'com.skline.sdksupport'
     compileSdk 33
@@ -11,8 +14,8 @@ android {
     defaultConfig {
         minSdk 24
         targetSdk 33
-        versionName "1.0.5"
-        versionCode 5
+        versionName "1.0.6"
+        versionCode 6
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
@@ -31,14 +34,8 @@ android {
         jvmTarget = '1.8'
     }
 
-    publishing {
-        singleVariant("release") {
-            withSourcesJar()
-            withJavadocJar()
-        }
-    }
-
 }
+
 
 dependencies {
 
@@ -49,14 +46,17 @@ dependencies {
     implementation 'com.facebook.android:facebook-android-sdk:16.0.1'
 }
 
-//        publications {
-//            release(MavenPublication) {
-//                groupId = 'com.github.R-Gutu'
-//                artifactId = 'SkylineSDK'
-//                version = '1.0.5'
-//
-//                afterEvaluate {
-//                    from components.release
-//                }
-//            }
-//        }
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.R-Gutu'
+                artifactId = 'SkylineSDK'
+                version = '1.0.6'
+            }
+        }
+    }
+}
