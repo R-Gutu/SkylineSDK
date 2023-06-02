@@ -9,7 +9,7 @@ import com.appsflyer.AppsFlyerLib
 import com.facebook.FacebookSdk
 import com.facebook.applinks.AppLinkData
 import com.google.android.gms.ads.identifier.AdvertisingIdClient
-//import com.onesignal.OneSignal
+import com.onesignal.OneSignal
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
@@ -41,9 +41,9 @@ class MainClass {
 //                }
 //            }
 //
-//            OneSignal.setLogLevel(OneSignal.LOG_LEVEL.VERBOSE, OneSignal.LOG_LEVEL.NONE)
-//            OneSignal.initWithContext(context)
-//            OneSignal.setAppId(osKey)
+            OneSignal.setLogLevel(OneSignal.LOG_LEVEL.VERBOSE, OneSignal.LOG_LEVEL.NONE)
+            OneSignal.initWithContext(context)
+            OneSignal.setAppId(osKey)
 //
             val otrewqwdasd: AppsFlyerConversionListener =
                 object : AppsFlyerConversionListener {
