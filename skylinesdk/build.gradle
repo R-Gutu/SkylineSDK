@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.github.R-Gutu'
-version = '1.0.6'
+version = '1.0.7'
 
 android {
     namespace 'com.skline.sdksupport'
@@ -14,8 +14,8 @@ android {
     defaultConfig {
         minSdk 24
         targetSdk 33
-        versionName "1.0.6"
-        versionCode 6
+        versionName "1.0.7"
+        versionCode 7
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
@@ -55,7 +55,7 @@ afterEvaluate {
                 from components.release
                 groupId = 'com.github.R-Gutu'
                 artifactId = 'SkylineSDK'
-                version = '1.0.6'
+                version = '1.0.7'
             }
         }
     }
