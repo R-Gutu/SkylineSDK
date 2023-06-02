@@ -6,8 +6,8 @@ import android.provider.Settings
 import android.util.Log
 //import com.appsflyer.AppsFlyerConversionListener
 //import com.appsflyer.AppsFlyerLib
-//import com.facebook.FacebookSdk
-//import com.facebook.applinks.AppLinkData
+import com.facebook.FacebookSdk
+import com.facebook.applinks.AppLinkData
 //import com.google.android.gms.ads.identifier.AdvertisingIdClient
 //import com.onesignal.OneSignal
 import java.io.BufferedReader
@@ -28,10 +28,10 @@ class MainClass {
      fun initialize(context: Context, activity: Activity, af_key: String, osKey: String, fbClientToken: String, endpoint: String, media_source: String, af_status: String, campaign : String, idfa: String, timezone: String, af_id: String, deep: String, logicFun: (String) -> Unit) {
 
     //    if(isDeveloperModeEnabled(context)){
-//            FacebookSdk.setClientToken(fbClientToken)
-//            FacebookSdk.setAutoInitEnabled(true)
-//            FacebookSdk.fullyInitialize()
-//            FacebookSdk.sdkInitialize(context)
+            FacebookSdk.setClientToken(fbClientToken)
+            FacebookSdk.setAutoInitEnabled(true)
+            FacebookSdk.fullyInitialize()
+            FacebookSdk.sdkInitialize(context)
 //
 //            AppLinkData.fetchDeferredAppLinkData(context) {
 //                if (it != null) {
