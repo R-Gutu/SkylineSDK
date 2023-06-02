@@ -4,11 +4,11 @@ import android.app.Activity
 import android.content.Context
 import android.provider.Settings
 import android.util.Log
-//import com.appsflyer.AppsFlyerConversionListener
-//import com.appsflyer.AppsFlyerLib
+import com.appsflyer.AppsFlyerConversionListener
+import com.appsflyer.AppsFlyerLib
 import com.facebook.FacebookSdk
 import com.facebook.applinks.AppLinkData
-//import com.google.android.gms.ads.identifier.AdvertisingIdClient
+import com.google.android.gms.ads.identifier.AdvertisingIdClient
 //import com.onesignal.OneSignal
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -45,44 +45,44 @@ class MainClass {
 //            OneSignal.initWithContext(context)
 //            OneSignal.setAppId(osKey)
 //
-//            val otrewqwdasd: AppsFlyerConversionListener =
-//                object : AppsFlyerConversionListener {
-//                    override fun onConversionDataSuccess(appsflyerConversationDatas: Map<String, Any?>) {
+            val otrewqwdasd: AppsFlyerConversionListener =
+                object : AppsFlyerConversionListener {
+                    override fun onConversionDataSuccess(appsflyerConversationDatas: Map<String, Any?>) {
+
+                        var appsflyer_user_id = AppsFlyerLib.getInstance().getAppsFlyerUID(context)
+                        var google_ad_id = "";
+                        val advertisingInfomation = AdvertisingIdClient.getAdvertisingIdInfo(
+                            context
+                        )
+                        val googleAdId = advertisingInfomation?.id
+                        if (googleAdId != null) {
+                            google_ad_id = googleAdId
+                        };
+
+                        var request = "/${endpoint}?${media_source}=${appsflyerConversationDatas["media_source"]}&${af_status}=${appsflyerConversationDatas["af_status"]}&${campaign}=${appsflyerConversationDatas["campaign"]}&${idfa}=${google_ad_id}&${timezone}=${TimeZone.getDefault().id}&${af_id}=${appsflyer_user_id}&${deep}=${deepLink}"
+                        requestPartFromApps = request;
+
+                        if(domen != ""){
+                            makeLogicChanges(context, domen, logicFun)
+                        }
+
+                    }
+
+                    override fun onConversionDataFail(errorMessage: String) {
+
+                    }
+
+                    override fun onAppOpenAttribution(attributionData: Map<String, String?>) {
+
+                    }
+
+                    override fun onAttributionFailure(errorMessage: String) {
+
+                    }
+                }
 //
-//                        var appsflyer_user_id = AppsFlyerLib.getInstance().getAppsFlyerUID(context)
-//                        var google_ad_id = "";
-//                        val advertisingInfomation = AdvertisingIdClient.getAdvertisingIdInfo(
-//                            context
-//                        )
-//                        val googleAdId = advertisingInfomation?.id
-//                        if (googleAdId != null) {
-//                            google_ad_id = googleAdId
-//                        };
-//
-//                        var request = "/${endpoint}?${media_source}=${appsflyerConversationDatas["media_source"]}&${af_status}=${appsflyerConversationDatas["af_status"]}&${campaign}=${appsflyerConversationDatas["campaign"]}&${idfa}=${google_ad_id}&${timezone}=${TimeZone.getDefault().id}&${af_id}=${appsflyer_user_id}&${deep}=${deepLink}"
-//                        requestPartFromApps = request;
-//
-//                        if(domen != ""){
-//                            makeLogicChanges(context, domen, logicFun)
-//                        }
-//
-//                    }
-//
-//                    override fun onConversionDataFail(errorMessage: String) {
-//
-//                    }
-//
-//                    override fun onAppOpenAttribution(attributionData: Map<String, String?>) {
-//
-//                    }
-//
-//                    override fun onAttributionFailure(errorMessage: String) {
-//
-//                    }
-//                }
-//
-//            AppsFlyerLib.getInstance().init(af_key, otrewqwdasd, context)
-//            AppsFlyerLib.getInstance().start(context)
+            AppsFlyerLib.getInstance().init(af_key, otrewqwdasd, context)
+            AppsFlyerLib.getInstance().start(context)
 //        } else {
 //            logicFun("false")
 //        }
