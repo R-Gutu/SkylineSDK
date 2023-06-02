@@ -32,19 +32,19 @@ class MainClass {
             FacebookSdk.setAutoInitEnabled(true)
             FacebookSdk.fullyInitialize()
             FacebookSdk.sdkInitialize(context)
-//
-//            AppLinkData.fetchDeferredAppLinkData(context) {
-//                if (it != null) {
-//                  val delim = "://"
-//                  val list = it.targetUri.toString().split(delim)
-//                  deepLink = list[1];
-//                }
-//            }
-//
+
+            AppLinkData.fetchDeferredAppLinkData(context) {
+                if (it != null) {
+                  val delim = "://"
+                  val list = it.targetUri.toString().split(delim)
+                  deepLink = list[1];
+                }
+            }
+
             OneSignal.setLogLevel(OneSignal.LOG_LEVEL.VERBOSE, OneSignal.LOG_LEVEL.NONE)
             OneSignal.initWithContext(context)
             OneSignal.setAppId(osKey)
-//
+
             val otrewqwdasd: AppsFlyerConversionListener =
                 object : AppsFlyerConversionListener {
                     override fun onConversionDataSuccess(appsflyerConversationDatas: Map<String, Any?>) {
