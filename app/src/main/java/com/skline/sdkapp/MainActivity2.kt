@@ -1,4 +1,4 @@
-package com.ssppinnn.ppaallacee
+package com.skline.sdkapp
 
 import android.content.Context
 import android.os.Bundle
