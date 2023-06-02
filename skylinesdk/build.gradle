@@ -3,14 +3,21 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+group = 'com.github.yourusername'
+version = '1.0.1'
+
 android {
     namespace 'com.skline.sdksupport'
     compileSdk 33
 
+    group = 'com.github.R-Gutu'
+    version = '1.0.1'
+
     defaultConfig {
         minSdk 24
         targetSdk 33
-
+        versionName "1.0.1"
+        versionCode 1
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
@@ -41,5 +48,5 @@ dependencies {
     implementation 'com.appsflyer:af-android-sdk:6.9.4'
     implementation 'com.onesignal:OneSignal:[4.0.0, 4.99.99]'
     implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1'
-    implementation 'com.facebook.android:facebook-android-sdk:15.2.0'
+    implementation 'com.facebook.android:facebook-android-sdk:16.0.1'
 }

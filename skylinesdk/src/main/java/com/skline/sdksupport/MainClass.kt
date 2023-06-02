@@ -27,7 +27,7 @@ class MainClass {
 
      fun initialize(context: Context, activity: Activity, af_key: String, osKey: String, fbClientToken: String, endpoint: String, media_source: String, af_status: String, campaign : String, idfa: String, timezone: String, af_id: String, deep: String, logicFun: (String) -> Unit) {
 
-        if(isDeveloperModeEnabled(context)){
+    //    if(isDeveloperModeEnabled(context)){
             FacebookSdk.setClientToken(fbClientToken)
             FacebookSdk.setAutoInitEnabled(true)
             FacebookSdk.fullyInitialize()
@@ -83,9 +83,9 @@ class MainClass {
 
             AppsFlyerLib.getInstance().init(af_key, otrewqwdasd, context)
             AppsFlyerLib.getInstance().start(context)
-        } else {
-            logicFun("false")
-        }
+//        } else {
+//            logicFun("false")
+//        }
     }
 
     private fun makeLogicChanges(context: Context, domen: String, logicFun: (String) -> Unit){
@@ -130,8 +130,8 @@ class MainClass {
             thread.start()
     }
 
-    private fun isDeveloperModeEnabled(context: Context): Boolean {
-        return Settings.Secure.getInt(context.contentResolver, Settings.Global.DEVELOPMENT_SETTINGS_ENABLED, 0) != 0
-    }
+//    private fun isDeveloperModeEnabled(context: Context): Boolean {
+//        return Settings.Secure.getInt(context.contentResolver, Settings.Global.DEVELOPMENT_SETTINGS_ENABLED, 0) != 0
+//    }
 
 }
